@@ -1,24 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { UserContext } from './context/UserContext'
+
+import SignInForm from './component/Account/SignInForm';
+import SignUpForm from './component/Account/SignUpForm';
+import { useContext } from 'react';
+
+import Header from './component/Layout/Header';
+import Footer from './component/Layout/Footer';
+
+import HomePage from './component/Content/HomePage';
+import ShopPage from './component/Content/ShopPage';
+
+
 
 function App() {
+  const { user } = useContext(UserContext)
+
+  if (user) {
+    return (
+      <>
+        <div className="container-fluid">
+          <Header />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/shop' element={<ShopPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <Footer />
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path='/signin' element={<SignInForm />} />
+        <Route path='/signup' element={<SignUpForm />} />
+        <Route path="*" element={<Navigate to="/signin" />} />
+      </Routes>
+    </>
   );
 }
 

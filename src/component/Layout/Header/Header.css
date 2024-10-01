@@ -1,0 +1,220 @@
+/* Đảm bảo navbar và các phần tử con nằm gọn trong phần tử cha */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Search bar và UserDropdown nằm trong cùng 1 hàng và căn giữa */
+.header_row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Khoảng cách giữa Search và UserDropdown */
+}
+
+/* Căn chỉnh logo */
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media queries cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        /* Căn trái trên màn hình nhỏ */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-search {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .button-search {
+        padding: 4px 10px;
+    }
+
+    /* Đảm bảo search bar và UserDropdown căn dọc trên màn hình nhỏ */
+    .header_row {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        /* Căn trái khi xuống dòng */
+    }
+
+    .dropdown {
+        align-self: flex-end;
+        /* Căn phải cho UserDropdown */
+    }
+
+}
+
+/* Đảm bảo dropdown ở giữa và ngay dưới icon */
+.dropdown {
+    position: relative;
+    /* Để đảm bảo dropdown-menu được căn chỉnh tương đối so với icon */
+}
+
+.dropdown-menu {
+    /* position: absolute; */
+    top: 100%;
+    /* Hiển thị ngay dưới icon */
+    left: 50%;
+    /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%);
+    /* Điều chỉnh để dropdown được căn giữa */
+    min-width: 150px;
+    /* Tùy chọn: bạn có thể điều chỉnh kích thước tối thiểu cho dropdown */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng cho dropdown */
+    padding: 0.5rem 1rem;
+    z-index: 999;
+    /* Đảm bảo dropdown hiển thị trên cùng */
+    display: none;
+    /* Ẩn menu mặc định */
+}
+
+/* Hiển thị dropdown khi click vào */
+.dropdown-menu.show {
+    display: block;
+    /* Hiển thị menu khi isDropdownOpen === true */
+}
+
+/* Kiểu của các item trong menu */
+.menu_user .dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu_user .dropdown-item span {
+    margin-right: 10px;
+}
+
+.menu_user .dropdown-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Đảm bảo icon và dropdown căn giữa với nhau */
+.fa-user {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Đảm bảo các liên kết không bị tràn */
+.nav-link {
+    color: black;
+    padding: 0.5rem 1.5rem;
+    margin-right: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Căn chỉnh dropdown menu */
+.dropdown {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Khoảng cách giữa icon và text trong dropdown */
+}
+
+.menu_user {
+    text-align: left;
+}
+
+/* SearchBar */
+.navbar-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(221, 221, 227);
+    border-radius: 8px;
+    height: 40px;
+}
+
+.navbar-search .search_value {
+    border: 0;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    flex: 1 1 0%;
+    outline: none;
+}
+
+.button-search {
+    cursor: pointer;
+    border: 0;
+    padding: 4px 12px;
+    border-radius: 0px 8px 8px 0px;
+    background: transparent;
+    color: rgb(2, 2, 2);
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Cart icon */
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 24px;
+    /* Tăng kích thước icon */
+    cursor: pointer;
+    color: #000;
+    /* Màu của icon */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    /* Điều chỉnh vị trí theo nhu cầu */
+    right: -10px;
+    /* Điều chỉnh vị trí theo nhu cầu */
+    background-color: #ff0d00;
+    /* Màu nền badge (xanh dương trong trường hợp này) */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+.cart-btn i {
+    font-size: 1.5rem;
+    /* Điều chỉnh kích thước icon giỏ hàng */
+}

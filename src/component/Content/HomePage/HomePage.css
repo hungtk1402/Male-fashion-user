@@ -1,0 +1,293 @@
+/* Ensure the carousel container adapts to different screen sizes */
+
+
+/* BannerCarousel*/
+.carousel-content {
+    position: absolute;
+    z-index: 1;
+    color: #000000;
+    text-align: left;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 50%;
+    /* Makes the content area more flexible on small screens */
+    padding: 10px;
+    /* Adds some padding for smaller screens */
+}
+
+/* Responsive collection name styling */
+.collection-name {
+    font-size: 12px;
+    /* Smaller on mobile */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* Responsive main title styling */
+.main-title {
+    font-size: 36px;
+    /* Adjust font size for smaller screens */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Responsive description styling */
+.description {
+    font-size: 16px;
+    /* Slightly smaller for readability on small screens */
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.shop-now-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.shop-now-button:hover {
+    background-color: #333;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Image will adjust to fit the screen */
+.carousel-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Styling for responsiveness at different breakpoints */
+@media (max-width: 1200px) {
+    .carousel-content {
+        max-width: 60%;
+        left: 8%;
+    }
+
+    .main-title {
+        font-size: 42px;
+    }
+
+    .description {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-content {
+        max-width: 80%;
+        left: 5%;
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .shop-now-button {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-content {
+        max-width: 90%;
+        left: 5%;
+        text-align: center;
+        /* Center align content for very small screens */
+    }
+
+    .main-title {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .shop-now-button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
+/* For screens smaller than 400px */
+@media (max-width: 400px) {
+    .main-title {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .shop-now-button {
+        padding: 6px 10px;
+    }
+}
+
+/* Ensure carousel items transition smoothly on all devices */
+.carousel-item {
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+
+
+/* Maintain fade-in animation for all text elements */
+.line {
+    opacity: 0;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLine {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply fade-in animation to all content with a delay */
+.collection-name {
+    animation-name: fadeInLine;
+    animation-delay: 0.5s;
+}
+
+.main-title {
+    animation-name: fadeInLine;
+    animation-delay: 1s;
+}
+
+.description {
+    animation-name: fadeInLine;
+    animation-delay: 1.5s;
+}
+
+.shop-now-button {
+    animation-name: fadeInLine;
+    animation-delay: 2s;
+}
+
+
+
+
+/* BannerCard */
+.spad {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.banner__item {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner__item__pic {
+    border-radius: 5px;
+    float: right;
+}
+
+.banner__item__text {
+    max-width: 300px;
+    position: absolute;
+    left: 0;
+    top: 140px;
+}
+
+.banner__item__text h2 {
+    color: #111111;
+    font-weight: 700;
+    line-height: 46px;
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.banner__item__text a {
+    display: inline-block;
+    color: #111111;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 3px 0;
+    position: relative;
+}
+
+.banner__item__text a::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #111111;
+    content: "";
+    transition: all 0.3s ease;
+}
+
+.banner__item:hover .banner__item__text a::after {
+    width: 50%;
+}
+
+.banner__item.banner__item--last {
+    margin-top: 100px;
+}
+
+.banner__item .banner__item--middle {
+    margin-top: -75px;
+}
+
+.banner__item.banner__item--middle .banner__item__pic {
+    float: none;
+}
+
+.banner__item.banner__item--middle .banner__item__text {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding-top: 22px;
+}
+
+@media (max-width: 992px) {
+    .banner__item h2 {
+        padding-left: 0;
+        text-align: left;
+        display: block;
+    }
+
+    .banner__item a {
+        text-align: left;
+        padding-left: 0;
+    }
+
+
+    .col-lg-7.offset-lg-4 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .banner__item--last {
+        margin-top: 0;
+    }
+}

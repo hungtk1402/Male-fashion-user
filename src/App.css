@@ -1,38 +1,178 @@
-.App {
-  text-align: center;
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+html,
+body {
+  font-family: "Nunito Sans", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Hiệu ứng cho welcome-section */
+.welcome-section {
+  opacity: 0;
+  animation: slideFromLeft 1.5s ease-out forwards;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Hiệu ứng cho auth-form-section */
+.auth-form-section {
+  opacity: 0;
+  animation: slideFromRight 1.5s ease-out forwards;
+}
+
+/* Hiệu ứng xuất hiện từ bên trái */
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px) scale(0.8);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateX(10px) scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Hiệu ứng xuất hiện từ bên phải */
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(200px) scale(0.8);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateX(-10px) scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* General body styles */
+.account {
+  background: url('../src/img/background1.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome-section h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.welcome-section .btn {
+  font-size: 18px;
+  padding: 10px 30px;
+  border-radius: 30px;
+}
+
+.auth-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  background-color: rgb(99, 88, 88);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.auth-form h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.btn-submit {
+  background-color: orange;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: rgb(159, 128, 6);
+}
+
+.forgot-link {
+  color: white;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.forgot-link:hover {
+  color: bisque;
+  text-decoration: none;
+}
+
+.social-login a {
+  font-size: 18px;
+  margin: 0 10px;
+  color: white;
+}
+
+.social-login a:hover {
+  color: bisque;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .welcome-section,
+  .auth-form-section {
+    height: 50vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .welcome-section {
+    text-align: center;
+    padding: 20px;
   }
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }
