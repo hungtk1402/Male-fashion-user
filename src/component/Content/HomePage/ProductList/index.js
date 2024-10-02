@@ -32,35 +32,35 @@ const ProductList = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div className="row product__filter">
-                    {products.map(product => (
-                        <div key={product.id} className={`col-lg-3 col-md-6 col-sm-6 mix ${product.category}`}>
-                            <div className='product__item'>
-                                <div className='product__item__pic set-bg'>
-                                    <img src={product.img} alt={`product-${product.id}`} />
-                                    {product.label && <span className='label'>{product.label}</span>}
-                                    <ul className='product__hover'>
-                                        <li><p className='far fa-heart'></p></li>
-                                        <li><p className='fas fa-search'></p></li>
-                                    </ul>
-                                </div>
-                                <div className='product__item__text'>
-                                    <h6>{product.name}</h6>
-                                    <div className='add-cart'>+ Add to Cart</div>
-                                    <div className='rating'>
-                                        {Array(5).fill(<i className="far fa-star"></i>)}
+                    <div className="row product__filter">
+                        {products.map(product => (
+                            <div key={product.id} className={`col-lg-3 col-md-6 col-sm-6 mix ${product.category}`}>
+                                <div className='product__item'>
+                                    <div className='product__item__pic set-bg'>
+                                        <img src={product.img} alt={`product-${product.id}`} />
+                                        {product.label && <span className='label'>{product.label}</span>}
+                                        <ul className='product__hover'>
+                                            <li><p className='far fa-heart'></p></li>
+                                            <li><p className='fas fa-search'></p></li>
+                                        </ul>
                                     </div>
-                                    <h5>{product.price}</h5>
-                                    <div className='product__color__select'>
-                                        <label><input type='radio' /></label>
-                                        <label className='active black'><input type='radio' /></label>
-                                        <label className='grey'><input type='radio' /></label>
+                                    <div className='product__item__text'>
+                                        <h6>{product.name}</h6>
+                                        <div className='add-cart'>+ Add to Cart</div>
+                                        <div className='rating'>
+                                            {Array(5).fill(<i className="far fa-star"></i>)}
+                                        </div>
+                                        <h5>{product.price}</h5>
+                                        <div className='product__color__select'>
+                                            <label><input type='radio' /></label>
+                                            <label className='active black'><input type='radio' /></label>
+                                            <label className='grey'><input type='radio' /></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </section>
         </>
