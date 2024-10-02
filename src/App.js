@@ -2,17 +2,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
+import { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { UserContext } from './context/UserContext'
+import { UserContext } from './context/UserContext';
 
 import SignInForm from './component/Account/SignInForm';
 import SignUpForm from './component/Account/SignUpForm';
-import { useContext } from 'react';
 
-import Header from './component/Layout/Header';
-import Footer from './component/Layout/Footer';
+import Header from './component/Layout/Header'
+import Footer from './component/Layout/Footer'
 
-import HomePage from './component/Content/HomePage';
+import HomePage from './component/Content/HomePage'
 import ShopPage from './component/Content/ShopPage';
 
 
