@@ -329,9 +329,9 @@
     background: #111111;
 }
 
-.product__item.sale .product__item__text .rating i {
+.product__item .product__item__text .rating i {
     color: #f7941d;
-    padding: 10px;
+    padding: 3px;
 }
 
 .product__item.sale .product__item__text .rating i:nth-last-child(1) {
@@ -381,52 +381,22 @@
     position: absolute;
     right: -200px;
     top: 20px;
-    -webkit-transition: all, 0.8s;
-    -o-transition: all, 0.8s;
-    transition: all, 0.8s;
+    background-color: #ffffff;
+    /* Add this line for white background */
+    padding: 10px;
+    /* Optional, to create some space inside */
+    opacity: 0;
+    /* Keeps it hidden until hover */
+    transition: all 0.8s ease;
 }
 
 .product__item__pic .product__hover li {
     list-style: none;
-    margin-bottom: 10px;
     position: relative;
+    cursor: pointer;
 }
 
-.product__item__pic .product__hover li:hover span {
-    opacity: 1;
-    visibility: visible;
-}
 
-.product__item__pic .product__hover li span {
-    color: #ffffff;
-    background: #111111;
-    display: inline-block;
-    padding: 4px 10px;
-    font-size: 12px;
-    position: absolute;
-    left: -78px;
-    top: 5px;
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: all, 0.3s;
-    -o-transition: all, 0.3s;
-    transition: all, 0.3s;
-}
-
-.product__item__pic .product__hover li span:after {
-    position: absolute;
-    right: -2px;
-    top: 5px;
-    height: 15px;
-    width: 15px;
-    background: #111111;
-    content: "";
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    z-index: -1;
-}
 
 .product__item__pic .product__hover li img {
     background: #ffffff;
@@ -528,4 +498,148 @@
 .product__item__text .product__color__select label input {
     position: absolute;
     visibility: hidden;
+}
+
+
+/* Product sale */
+.categories {
+    background: #f3f2ee;
+    overflow: hidden;
+    padding-top: 150px;
+    padding-bottom: 125px;
+}
+
+.categories__text {
+    padding-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.categories__text:before {
+    position: absolute;
+    left: -485px;
+    top: 0;
+    height: 300px;
+    width: 600px;
+    background: #ffffff;
+    z-index: -1;
+    content: "";
+}
+
+.categories__text h2 {
+    color: #b7b7b7;
+    line-height: 72px;
+    font-size: 34px;
+}
+
+.categories__text h2 span {
+    font-weight: 700;
+    color: #111111;
+}
+
+.categories__hot__deal {
+    position: relative;
+    z-index: 5;
+}
+
+.categories__hot__deal img {
+    min-width: 100%;
+}
+
+.hot__deal__sticker {
+    height: 100px;
+    width: 100px;
+    background: #111111;
+    border-radius: 50%;
+    padding-top: 22px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: -36px;
+}
+
+.hot__deal__sticker span {
+    display: block;
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.hot__deal__sticker h5 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.categories__deal__countdown span {
+    color: #e53637;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.categories__deal__countdown h2 {
+    color: #111111;
+    font-weight: 700;
+    line-height: 46px;
+    margin-bottom: 25px;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer {
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin-left: -30px;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer .cd-item {
+    width: 25%;
+    float: left;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer .cd-item:after {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    content: ":";
+    font-size: 24px;
+    font-weight: 700;
+    color: #3d3d3d;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer .cd-item:last-child:after {
+    display: none;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer .cd-item span {
+    color: #111111;
+    font-weight: 700;
+    display: block;
+    font-size: 36px;
+}
+
+.categories__deal__countdown .categories__deal__countdown__timer .cd-item p {
+    margin-bottom: 0;
+}
+
+.primary-btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 14px 30px;
+    color: #ffffff;
+    background: #000000;
+    letter-spacing: 4px;
+}
+
+.primary-btn:hover {
+    background-color: #333;
+    text-decoration: none;
+    color: #fff;
 }
