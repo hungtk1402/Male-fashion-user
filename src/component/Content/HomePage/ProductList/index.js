@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Product1 from '../../../../img/product-1.jpg';
-import Product2 from '../../../../img/product-2.jpg';
-import Product3 from '../../../../img/product-3.jpg';
-import Product4 from '../../../../img/product-4.jpg';
-import Product5 from '../../../../img/product-5.jpg';
-import Product6 from '../../../../img/product-6.jpg';
-import Product7 from '../../../../img/product-7.jpg';
-import Product8 from '../../../../img/product-8.jpg';
+import Product1 from '../../../../img/product/product-1.jpg';
+import Product2 from '../../../../img/product/product-2.jpg';
+import Product3 from '../../../../img/product/product-3.jpg';
+import Product4 from '../../../../img/product/product-4.jpg';
+import Product5 from '../../../../img/product/product-5.jpg';
+import Product6 from '../../../../img/product/product-6.jpg';
+import Product7 from '../../../../img/product/product-7.jpg';
+import Product8 from '../../../../img/product/product-8.jpg';
 
 const products = [
     { id: 1, img: Product1, label: 'New', name: 'Piqué Biker Jacket', price: '$67.24', filterClass: 'new-arrivals', rating: 4, colors: ['black', 'grey'] },

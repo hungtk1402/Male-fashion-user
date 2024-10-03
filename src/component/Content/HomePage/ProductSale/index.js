@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Sale from '../../../../img/product-sale.png'
+import Sale from '../../../../img/product/product-sale.png'
 import { useEffect, useState } from 'react'
 
 const ProductSale = () => {

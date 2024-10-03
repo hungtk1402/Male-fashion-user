@@ -1,9 +1,24 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-html,
+/* html,
 body {
   font-family: "Nunito Sans", sans-serif;
+} */
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 
 /* Hiệu ứng cho welcome-section */
 .welcome-section {
