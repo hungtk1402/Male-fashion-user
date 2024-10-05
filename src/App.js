@@ -46,11 +46,13 @@ function App() {
       <>
         <div className="container-fluid fade-in">
           <Header />
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/shop' element={<ShopPage />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          <div className='content'>
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/shop' element={<ShopPage />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </div>
           <Footer />
         </div>
       </>

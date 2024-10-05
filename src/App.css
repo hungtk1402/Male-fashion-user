@@ -19,6 +19,10 @@ body {
   }
 }
 
+.content {
+  min-height: 100vh;
+}
+
 
 /* Hiệu ứng cho welcome-section */
 .welcome-section {
