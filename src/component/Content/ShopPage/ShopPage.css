@@ -33,57 +33,12 @@
 }
 
 /* shop */
+.shop{
+    margin-bottom: 50px;
+}
+
 .shop__sidebar {
     padding-right: 20px;
-}
-
-.shop__sidebar__search {
-    margin-bottom: 45px;
-}
-
-.shop__sidebar__search form {
-    position: relative;
-}
-
-.shop__sidebar__search form input {
-    width: 100%;
-    font-size: 15px;
-    color: #b7b7b7;
-    padding-left: 20px;
-    border: 1px solid #e5e5e5;
-    height: 42px;
-}
-
-.shop__sidebar__search form input::-webkit-input-placeholder {
-    color: #b7b7b7;
-}
-
-.shop__sidebar__search form input::-moz-placeholder {
-    color: #b7b7b7;
-}
-
-.shop__sidebar__search form input:-ms-input-placeholder {
-    color: #b7b7b7;
-}
-
-.shop__sidebar__search form input::-ms-input-placeholder {
-    color: #b7b7b7;
-}
-
-.shop__sidebar__search form input::placeholder {
-    color: #b7b7b7;
-}
-
-.shop__sidebar__search form button {
-    color: #b7b7b7;
-    font-size: 15px;
-    border: none;
-    background: transparent;
-    position: absolute;
-    right: 0;
-    padding: 0 15px;
-    top: 0;
-    height: 100%;
 }
 
 .shop__sidebar__accordion .card {
@@ -118,6 +73,20 @@
     font-weight: 700;
     text-transform: uppercase;
     display: block;
+    text-align: left;
+    white-space: nowrap; /* Không xuống dòng */
+}
+
+.shop__sidebar__accordion .card-heading .icon {
+    text-align: right;
+}
+
+.shop__sidebar__accordion .card-heading .icon i {
+    transition: transform 0.3s ease;
+}
+
+.shop__sidebar__accordion .card-heading .icon.open i {
+    transform: rotate(180deg);
 }
 
 .shop__sidebar__categories ul,
@@ -265,6 +234,7 @@
     padding: 5px 18px;
     display: inline-block;
     text-transform: uppercase;
+    text-decoration: none;
     margin-right: 6px;
     margin-bottom: 10px;
     -webkit-transition: all, 0.3s;
@@ -277,30 +247,6 @@
     color: #ffffff;
 }
 
-.shop__sidebar__accordion .card-heading a:after,
-.shop__sidebar__accordion .card-heading>a.active[aria-expanded=false]:after {
-    content: "";
-    font-family: "FontAwesome";
-    font-size: 24px;
-    font-weight: 700;
-    color: #111111;
-    position: absolute;
-    right: 0;
-    top: 2px;
-    line-height: 20px;
-}
-
-.shop__sidebar__accordion .card-heading.active a:after {
-    content: "";
-    font-family: "FontAwesome";
-    font-size: 24px;
-    font-weight: 700;
-    color: #111111;
-    position: absolute;
-    right: 0;
-    top: 2px;
-    line-height: 20px;
-}
 
 .shop__product__option {
     margin-bottom: 45px;
@@ -339,6 +285,8 @@
     font-size: 15px;
     font-weight: 700;
     border: none;
+    width: 120px; /* Đặt chiều rộng cố định, đủ cho "Low To High" */
+    white-space: nowrap; /* Không xuống dòng */
 }
 
 .shop__product__option__right .nice-select.open .list {
@@ -396,6 +344,7 @@
 
 .product__pagination a:hover {
     border-color: #111111;
+    text-decoration: none;
 }
 
 .product__pagination span {

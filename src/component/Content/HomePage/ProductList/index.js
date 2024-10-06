@@ -11,7 +11,7 @@ import Product8 from '../../../../img/product/product-8.jpg';
 const products = [
     { id: 1, img: Product1, label: 'New', name: 'Piqué Biker Jacket', price: '$67.24', filterClass: 'new-arrivals', rating: 4, colors: ['black', 'grey'] },
     { id: 2, img: Product2, name: 'Multi-pocket Chest Bag', price: '$43.48', filterClass: 'hot-sales', rating: 4.5, colors: ['black', 'grey'] },
-    { id: 3, img: Product3, label: 'Sale', name: 'Multi-pocket Chest Bag', price: '$43.48', filterClass: 'new-arrivals', rating: 5, colors: ['black', 'grey'] },
+    { id: 3, img: Product3, label: 'Sale', name: 'Multi-pocket Chest Bag', price: '$43.48', filterClass: 'new-arrivals', rating: 4.5, colors: ['black', 'grey'] },
     { id: 4, img: Product4, name: 'Diagonal Textured Cap', price: '$60.9', filterClass: 'hot-sales', rating: 4, colors: ['black', 'grey'] },
     { id: 5, img: Product5, name: 'Lether Backpack', price: '$31.37', filterClass: 'new-arrivals', rating: 4.5, colors: ['black', 'grey'] },
     { id: 6, img: Product6, label: 'Sale', name: 'Ankle Boots', price: '$31.37', filterClass: 'hot-sales', rating: 5, colors: ['black', 'grey'] },

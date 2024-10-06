@@ -7,9 +7,9 @@ const ShopSidebar = () => {
         categories: true,
         branding: true,
         filterPrice: true,
-        size: true,
-        color: true,
-        tags: true
+        size: false,
+        color: false,
+        tags: false
     });
 
     // Hàm để bật/tắt accordion
@@ -126,11 +126,13 @@ const ShopSidebar = () => {
                     {sidebarItems.map((item, index) => (
                         <div className='card' key={index}>
                             <div className='card-heading'>
-                                <div
-                                    className='sidebar__title'
-                                    onClick={() => toggleAccordion(item.key)}
-                                >
-                                    {item.title}
+                                <div className='row' onClick={() => toggleAccordion(item.key)}>
+                                    <div className='sidebar__title col'>
+                                        {item.title}
+                                    </div>
+                                    <div className={`col icon ${openAccordion[item.key] ? 'open' : ''}`}>
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
                                 </div>
                             </div>
                             <CSSTransition
