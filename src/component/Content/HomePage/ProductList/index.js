@@ -97,6 +97,7 @@ const ProductList = () => {
                                         {product.label && <span className='label'>{product.label}</span>}
                                         <ul className='product__hover'>
                                             <li><p className='far fa-heart'></p></li>
+                                            <li><p className='fas fa-exchange-alt'></p></li>
                                             <li><p className='fas fa-search'></p></li>
                                         </ul>
                                     </div>

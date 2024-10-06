@@ -3,8 +3,19 @@ import './ShopPage.css';
 import ShopSidebar from './ShopSidebar';
 import ShopOption from './ShopOption';
 import ProductShop from './ProductShop';
+import { useState } from 'react';
 
 const ShopPage = () => {
+    const [sortOrder, setSortOrder] = useState('asc')
+    const [priceFilter, setPriceFilter] = useState({ min: 0, max: Infinity })
+
+    const handleSortChange = (order) => {
+        setSortOrder(order)
+    }
+
+    const handleFilterByPrice = (minPrice, maxPrice) => {
+        setPriceFilter({ min: minPrice, max: maxPrice })
+    }
 
     return (
         <>
@@ -27,33 +38,22 @@ const ShopPage = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-3'>
-                            <ShopSidebar />
+                            <ShopSidebar onFilterByPrice={handleFilterByPrice} />
                         </div>
                         <div className='col-lg-9'>
                             <div className='shop__product__option'>
                                 <div className='row'>
                                     <div className='col-lg-6 col-md-6 col-sm-6'>
                                         <div className="shop__product__option__left">
-                                            <p>Showing 1-12 of 126 results</p>
+                                            <p>Price range: <strong>{`$${priceFilter.min} - $${priceFilter.max}`}</strong></p>
                                         </div>
                                     </div>
                                     <div className='col-lg-6 col-md-6 col-sm-6'>
-                                        <ShopOption />
+                                        <ShopOption onSortChange={handleSortChange} />
                                     </div>
                                 </div>
                             </div>
-                            <ProductShop />
-                            <div className='row'>
-                                <div className='col-lg-12'>
-                                    <div className='product__pagination'>
-                                        <a className='active' href='#'>1</a>
-                                        <a href='#'>2</a>
-                                        <a href='#'>3</a>
-                                        <span>...</span>
-                                        <a href='#'>21</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <ProductShop sortOrder={sortOrder} priceFilter={priceFilter} />
                         </div>
                     </div>
                 </div>

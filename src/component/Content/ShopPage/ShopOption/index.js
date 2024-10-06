@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-const ShopOption = () => {
+const ShopOption = ({ onSortChange, onFilterByPrice }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const [selectedOption, setSelectedOption] = useState('Low to high')
     const dropdownRef = useRef(null)
@@ -13,6 +13,12 @@ const ShopOption = () => {
     const handleOptionClick = (option) => {
         setSelectedOption(option)
         setDropdownOpen(false)
+
+        if (option === 'Low to high') {
+            onSortChange('asc')
+        } else if (option === 'High to low') {
+            onSortChange('desc')
+        }
     }
 
     // đóng dropdown nếu nhấp chuột ngoài vùng dropdown
@@ -47,16 +53,10 @@ const ShopOption = () => {
                                 Low To High
                             </li>
                             <li
-                                className={`option ${selectedOption === '$0 - $55' ? 'selected' : ''}`}
-                                onClick={() => handleOptionClick('$0 - $55')}
+                                className={`option ${selectedOption === 'High to low' ? 'selected' : ''}`}
+                                onClick={() => handleOptionClick('High to low')}
                             >
-                                $0 - $55
-                            </li>
-                            <li
-                                className={`option ${selectedOption === '$55 - $100' ? 'selected' : ''}`}
-                                onClick={() => handleOptionClick('$55 - $100')}
-                            >
-                                $55 - $100
+                                High To Low
                             </li>
                         </ul>
                     )}

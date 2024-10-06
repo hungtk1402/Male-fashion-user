@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-const ShopSidebar = () => {
+const ShopSidebar = ({ onFilterByPrice }) => {
     // State để quản lý mở/đóng accordion
     const [openAccordion, setOpenAccordion] = useState({
         categories: true,
@@ -28,13 +28,11 @@ const ShopSidebar = () => {
             content: (
                 <div className='shop__sidebar__categories'>
                     <ul className='nice-scroll'>
-                        <li><a href='/shop'>Men</a></li>
-                        <li><a href='/shop'>Women</a></li>
-                        <li><a href='/shop'>Bags</a></li>
-                        <li><a href='/shop'>Clothing</a></li>
-                        <li><a href='/shop'>Shoes</a></li>
-                        <li><a href='/shop'>Accessories</a></li>
-                        <li><a href='/shop'>Kids</a></li>
+                        <li><p>All</p></li>
+                        <li><p>Bags</p></li>
+                        <li><p>Clothing</p></li>
+                        <li><p>Shoes</p></li>
+                        <li><p>Accessories</p></li>
                     </ul>
                 </div>
             )
@@ -45,10 +43,10 @@ const ShopSidebar = () => {
             content: (
                 <div className='shop__sidebar__brand'>
                     <ul>
-                        <li><a href='/shop'>Louis Vuitton</a></li>
-                        <li><a href='/shop'>Chanel</a></li>
-                        <li><a href='/shop'>Hermes</a></li>
-                        <li><a href='/shop'>Gucci</a></li>
+                        <li><p>Louis Vuitton</p></li>
+                        <li><p>Chanel</p></li>
+                        <li><p>Hermes</p></li>
+                        <li><p>Gucci</p></li>
                     </ul>
                 </div>
             )
@@ -59,29 +57,13 @@ const ShopSidebar = () => {
             content: (
                 <div className='shop__sidebar__price'>
                     <ul>
-                        <li><a href='/shop'>$0.00 - $50.00</a></li>
-                        <li><a href='/shop'>$50.00 - $100.00</a></li>
-                        <li><a href='/shop'>$100.00 - $150.00</a></li>
-                        <li><a href='/shop'>$150.00 - $200.00</a></li>
-                        <li><a href='/shop'>$200.00 - $250.00</a></li>
-                        <li><a href='/shop'>$250.00+</a></li>
+                        <li onClick={() => onFilterByPrice(0, 50)}><p>$0.00 - $50.00</p></li>
+                        <li onClick={() => onFilterByPrice(50, 100)}><p>$50.00 - $100.00</p></li>
+                        <li onClick={() => onFilterByPrice(100, 150)}><p>$100.00 - $150.00</p></li>
+                        <li onClick={() => onFilterByPrice(150, 200)}><p>$150.00 - $200.00</p></li>
+                        <li onClick={() => onFilterByPrice(200, 250)}><p>$200.00 - $250.00</p></li>
+                        <li onClick={() => onFilterByPrice(250, Infinity)}><p>$250.00+</p></li>
                     </ul>
-                </div>
-            )
-        },
-        {
-            key: 'size',
-            title: 'Size',
-            content: (
-                <div className='shop__sidebar__size'>
-                    <label>xs<input type="radio" id="xs" /></label>
-                    <label>s<input type="radio" id="sm" /></label>
-                    <label>m<input type="radio" id="md" /></label>
-                    <label>xl<input type="radio" id="xl" /></label>
-                    <label>2xl<input type="radio" id="2xl" /></label>
-                    <label>xxl<input type="radio" id="xxl" /></label>
-                    <label>3xl<input type="radio" id="3xl" /></label>
-                    <label>4xl<input type="radio" id="4xl" /></label>
                 </div>
             )
         },
@@ -107,13 +89,13 @@ const ShopSidebar = () => {
             title: 'Tags',
             content: (
                 <div className='shop__sidebar__tags'>
-                    <a href='/shop'>Product</a>
-                    <a href='/shop'>Bags</a>
-                    <a href='/shop'>Shoes</a>
-                    <a href='/shop'>Fashion</a>
-                    <a href='/shop'>Clothing</a>
-                    <a href='/shop'>Hats</a>
-                    <a href='/shop'>Accessories</a>
+                    <p>Product</p>
+                    <p>Bags</p>
+                    <p>Shoes</p>
+                    <p>Fashion</p>
+                    <p>Clothing</p>
+                    <p>Hats</p>
+                    <p>Accessories</p>
                 </div>
             )
         }
