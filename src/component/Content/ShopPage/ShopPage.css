@@ -105,7 +105,7 @@
 .shop__sidebar__categories ul li p,
 .shop__sidebar__price ul li p,
 .shop__sidebar__brand ul li p {
-    color: #b7b7b7;
+    /* color: #b7b7b7; */
     font-size: 15px;
     line-height: 32px;
     -webkit-transition: all, 0.3s;
@@ -118,6 +118,18 @@
 .shop__sidebar__price ul li p:hover,
 .shop__sidebar__brand ul li p:hover {
     color: #111111;
+}
+
+/* Class làm nổi bật khi bộ lọc được chọn */
+.active-filter {
+    color: #111111;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Class làm nổi bật màu sắc khi được chọn */
+.active-color {
+    border: 5px solid #111111;
 }
 
 .shop__sidebar__brand ul {
@@ -143,40 +155,24 @@
     cursor: pointer;
 }
 
-.shop__sidebar__color label.c-1 {
-    background: #0b090c;
+.shop__sidebar__color label.black {
+    background-color: black;
 }
 
-.shop__sidebar__color label.c-2 {
-    background: #20315f;
+.shop__sidebar__color label.red {
+    background-color: red;
 }
 
-.shop__sidebar__color label.c-3 {
-    background: #f1af4d;
+.shop__sidebar__color label.blue {
+    background-color: blue;
 }
 
-.shop__sidebar__color label.c-4 {
-    background: #636068;
+.shop__sidebar__color label.green {
+    background-color: green;
 }
 
-.shop__sidebar__color label.c-5 {
-    background: #57594d;
-}
-
-.shop__sidebar__color label.c-6 {
-    background: #e8bac4;
-}
-
-.shop__sidebar__color label.c-7 {
-    background: #d6c1d7;
-}
-
-.shop__sidebar__color label.c-8 {
-    background: #ed1c24;
-}
-
-.shop__sidebar__color label.c-9 {
-    background: #ffffff;
+.shop__sidebar__color label.yellow {
+    background-color: yellow;
 }
 
 .shop__sidebar__color label:after {
@@ -194,31 +190,6 @@
     position: absolute;
     visibility: hidden;
 }
-
-.shop__sidebar__tags {
-    padding-top: 15px;
-}
-
-.shop__sidebar__tags p {
-    color: #404040;
-    font-size: 13px;
-    font-weight: 700;
-    background: #f1f5f8;
-    padding: 5px 18px;
-    display: inline-block;
-    text-transform: uppercase;
-    margin-right: 6px;
-    margin-bottom: 10px;
-    -webkit-transition: all, 0.3s;
-    -o-transition: all, 0.3s;
-    transition: all, 0.3s;
-}
-
-.shop__sidebar__tags p:hover {
-    background: #111111;
-    color: #ffffff;
-}
-
 
 .shop__product__option {
     margin-bottom: 45px;
@@ -250,7 +221,6 @@
     border: none;
     padding-right: 28px;
 }
-
 
 .shop__product__option__right .nice-select .current {
     color: #111111;
@@ -306,6 +276,9 @@
     flex-grow: 1;
 }
 
+.product__color__select label {
+    border: 1px solid #ddd;
+}
 
 .product__pagination {
     padding-top: 25px;

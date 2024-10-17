@@ -228,6 +228,8 @@ body {
 .product__item {
   overflow: hidden;
   margin-bottom: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
 
 .product__item.sale .product__item__pic .label {
@@ -265,6 +267,11 @@ body {
   background-position: center center;
 }
 
+.product__item__pic img {
+  width: 260px;
+  height: 260px;
+}
+
 .product__item__pic .label {
   color: #111111;
   font-size: 11px;
@@ -283,13 +290,11 @@ body {
   position: absolute;
   right: -200px;
   top: 20px;
-  background-color: #ffffff;
-  /* Add this line for white background */
+  background-color: #fae3e3;
   padding: 10px;
-  /* Optional, to create some space inside */
   opacity: 0;
-  /* Keeps it hidden until hover */
   transition: all 0.8s ease;
+  border-radius: 10px;
 }
 
 .product__item__pic .product__hover li {
@@ -298,21 +303,17 @@ body {
   cursor: pointer;
 }
 
-
-
-.product__item__pic .product__hover li img {
-  background: #ffffff;
-  padding: 10px;
-  display: inline-block;
-}
-
 .product__item__text {
   padding-top: 25px;
+  padding-left: 10px;
+  padding-bottom: 10px;
   position: relative;
+  border-top: 1px solid #ddd;
 }
 
 .product__item__text .add-cart {
   cursor: pointer;
+  padding-left: 10px;
   font-size: 15px;
   color: #e53637;
   font-weight: 700;
@@ -373,14 +374,6 @@ body {
   cursor: pointer;
 }
 
-.product__item__text .product__color__select label.black {
-  background: #404a47;
-}
-
-.product__item__text .product__color__select label.grey {
-  background: #d5a667;
-}
-
 .product__item__text .product__color__select label.active:after {
   opacity: 1;
 }
@@ -400,4 +393,21 @@ body {
 .product__item__text .product__color__select label input {
   position: absolute;
   visibility: hidden;
+}
+
+.primary-btn {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  color: #ffffff;
+  background: #000000;
+  letter-spacing: 4px;
+}
+
+.primary-btn:hover {
+  background-color: #333;
+  text-decoration: none;
+  color: #fff;
 }

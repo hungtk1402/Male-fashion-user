@@ -416,28 +416,6 @@
     margin-bottom: 0;
 }
 
-.primary-btn {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 14px 30px;
-    color: #ffffff;
-    background: #000000;
-    letter-spacing: 4px;
-}
-
-.primary-btn:hover {
-    background-color: #333;
-    text-decoration: none;
-    color: #fff;
-}
-
-/* instargram */
-/* .instagram {
-    padding-bottom: 0;
-} */
-
 .instagram__pic__item {
     width: 33.33%;
     float: left;
@@ -568,8 +546,4 @@
     line-height: 46px;
 }
 
-/* .set-bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-} */
+

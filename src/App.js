@@ -15,7 +15,7 @@ import Footer from './component/Layout/Footer'
 
 import HomePage from './component/Content/HomePage'
 import ShopPage from './component/Content/ShopPage';
-
+import ProductDetail from './component/Content/ProductDetail';
 
 
 function App() {
@@ -50,6 +50,7 @@ function App() {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/shop' element={<ShopPage />} />
+              <Route path='/product/:productId' element={<ProductDetail />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
