@@ -61,7 +61,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </section>
-            <RelatedProduct />
+            <RelatedProduct currentProductId={product.id} category={product.category} />
         </>
     );
 };
