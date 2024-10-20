@@ -107,12 +107,11 @@
     margin-bottom: 10px;
 }
 
-.product__details__text .rating {
+.product__details__text .details__rating {
     margin-bottom: 20px;
-    color: #f7941d;
 }
 
-.product__details__text .rating span {
+.product__details__text .details__rating p {
     display: inline-block;
     color: #3d3d3d;
     margin-left: 5px;

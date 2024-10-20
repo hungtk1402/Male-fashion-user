@@ -47,9 +47,7 @@ const RelatedProduct = ({ currentProductId, category }) => {
                                     <div className='product__item__text'>
                                         <h6>{product.name}</h6>
                                         <div className='add-cart'>+ Add to cart</div>
-                                        <div className='rating'>
-                                            <RenderStars rating={product.rating} />
-                                        </div>
+                                        <RenderStars rating={product.rating} />
                                         <h5><span className='fas fa-dollar-sign'></span>{product.price}</h5>
                                         <div className='product__color__select'>
                                             {product.colors.map((color, index) => (

@@ -5,9 +5,11 @@ const RenderStars = ({ rating }) => {
 
     return (
         <>
-            {Array(fullStars).fill(<i className="fas fa-star"></i>)}
-            {halfStar && <i className="fas fa-star-half-alt"></i>}
-            {Array(emptyStars).fill(<i className="far fa-star"></i>)}
+            <div className="rating">
+                {Array(fullStars).fill(<i className="fas fa-star"></i>)}
+                {halfStar && <i className="fas fa-star-half-alt"></i>}
+                {Array(emptyStars).fill(<i className="far fa-star"></i>)}
+            </div>
         </>
     );
 };

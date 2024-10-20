@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RenderStars from '../../RenderStars';
 
-
 const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) => {
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1);

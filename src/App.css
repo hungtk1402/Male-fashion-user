@@ -237,7 +237,8 @@ body {
   background: #111111;
 }
 
-.product__item .product__item__text .rating i {
+ .rating i {
+  font-size: 14px;
   color: #f7941d;
   padding: 3px;
 }
@@ -339,12 +340,6 @@ body {
 
 .product__item__text .rating {
   margin-bottom: 6px;
-}
-
-.product__item__text .rating i {
-  font-size: 14px;
-  color: #b7b7b7;
-  margin-right: -5px;
 }
 
 .product__item__text h5 {

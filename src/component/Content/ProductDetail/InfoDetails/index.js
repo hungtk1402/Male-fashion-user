@@ -5,9 +5,9 @@ const InfoDetails = ({ products }) => {
         <>
             <div className="details__content">
                 <h4>{products.name}</h4>
-                <div className="rating">
+                <div className="details__rating">
                     <RenderStars rating={products.rating} />
-                    <span> - {products.reviewCount} Review</span>
+                    <p>{products.reviewCount} Review</p>
                 </div>
                 <h3>
                     <p className="fas fa-dollar-sign price"></p>{products.price}
