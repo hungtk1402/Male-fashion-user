@@ -19,7 +19,7 @@ const RelatedProduct = ({ currentProductId, category }) => {
     }, [category, currentProductId])
 
     const handleDetailClick = (productId) => {
-        navigate(`product/${productId}`)
+        navigate(`/product/${productId}`)
     }
 
     return (

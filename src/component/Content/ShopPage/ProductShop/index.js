@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../../../context/CartContext';
 import RenderStars from '../../RenderStars';
 
 const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) => {
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
+    const {addToCart} = useContext(CartContext)
     const productsPerPage = 12;
     const navigate = useNavigate()
 
@@ -139,7 +141,7 @@ const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) =>
                                 </div>
                                 <div className='product__item__text'>
                                     <h6>{product.name}</h6>
-                                    <div className='add-cart'>+ Add to cart</div>
+                                    <div className='add-cart' onClick={() => addToCart(product)}>+ Add to cart</div>
                                     <div className='rating'>
                                         <RenderStars rating={product.rating} />
                                     </div>

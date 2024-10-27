@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
-import RenderStars from '../../RenderStars';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../../../context/CartContext';
+import RenderStars from '../../RenderStars';
 
 const ProductList = () => {
     const [products, setProducts] = useState([])
     const [activeTab, setActiveTab] = useState('best-seller')
     const [animationClass, setAnimationClass] = useState('')
     const [isTransitioning, setIsTransitioning] = useState(false)
+    const { addToCart } = useContext(CartContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -29,7 +31,7 @@ const ProductList = () => {
     const filteredProducts = products.filter(product => {
         if (activeTab === 'best-seller') return true;
         return product.filterClass === activeTab
-    }).slice(0,8)
+    }).slice(0, 8)
 
     const handleDetailClick = (productId) => {
         navigate(`/product/${productId}`)
@@ -87,7 +89,7 @@ const ProductList = () => {
                                     </div>
                                     <div className='product__item__text'>
                                         <h6>{product.name}</h6>
-                                        <div className='add-cart'>+ Add to Cart</div>
+                                        <div className='add-cart' onClick={() => addToCart(product)}>+ Add to Cart</div>
                                         <RenderStars rating={product.rating} />
                                         <h5>{product.price}</h5>
                                         <div className='product__color__select'>

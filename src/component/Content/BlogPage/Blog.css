@@ -1,0 +1,28 @@
+.breadcrumb-blog {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.breadcrumb-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area */
+    z-index: -1;
+    /* Push the image behind the content */
+}
+
+.breadcrumb-blog h2 {
+    color: #ffffff;
+    font-size: 60px;
+    z-index: 1;
+    /* Keep the text above the image */
+}
+

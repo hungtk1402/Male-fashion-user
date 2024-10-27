@@ -16,6 +16,9 @@ import Footer from './component/Layout/Footer'
 import HomePage from './component/Content/HomePage'
 import ShopPage from './component/Content/ShopPage';
 import ProductDetail from './component/Content/ProductDetail';
+import BlogPage from './component/Content/BlogPage';
+import ContactPage from './component/Content/ContactPage';
+import CartPage from './component/Content/CartPage';
 
 
 function App() {
@@ -51,6 +54,9 @@ function App() {
               <Route path='/' element={<HomePage />} />
               <Route path='/shop' element={<ShopPage />} />
               <Route path='/product/:productId' element={<ProductDetail />} />
+              <Route path='/blog' element={<BlogPage />} />
+              <Route path='/contact' element={<ContactPage />}/>
+              <Route path='/cart' element={<CartPage />}/>
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>

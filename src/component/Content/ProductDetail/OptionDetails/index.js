@@ -1,4 +1,8 @@
+import { useContext } from "react"
+import { CartContext } from "../../../../context/CartContext"
+
 const OptionDetails = ({ products }) => {
+    const {addToCart} = useContext(CartContext)
     return (
         <>
             <div className="product__details__option">
@@ -20,7 +24,7 @@ const OptionDetails = ({ products }) => {
                     ))}
                 </div>
                 <div className="product__details__cart__option">
-                    <button className="primary-btn">Add to cart</button>
+                    <button className="primary-btn" onClick={() => addToCart(products)}>Add to cart</button>
                 </div>
                 <div className="product__details__btns__option">
                     <div className='option'><i className='far fa-heart'></i> Add to wishlish</div>
