@@ -34,7 +34,7 @@ const UserDropdown = () => {
                     <div className="fa fa-user"></div>
                     <div className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
                         <div className="menu_user">
-                            <p className="text-center">Welcome, {user?.fullName}</p>
+                            <p className="text-center">Welcome, {user?.firstName}</p>
                             <div className="dropdown-item">
                                 <span className="fas fa-user-circle p-2"></span>
                                 My profile

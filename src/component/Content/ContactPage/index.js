@@ -43,15 +43,15 @@ const ContactPage = () => {
                             <div className='contact__form'>
                                 <form>
                                     <div className='row'>
-                                        <div class="col-lg-6">
+                                        <div className="col-lg-6">
                                             <input type="text" placeholder="Name" />
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div className="col-lg-6">
                                             <input type="text" placeholder="Email" />
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div className="col-lg-12">
                                             <textarea placeholder="Message"></textarea>
-                                            <button type="submit" class="site-btn">Send Message</button>
+                                            <button type="submit" className="site-btn">Send Message</button>
                                         </div>
                                     </div>
                                 </form>

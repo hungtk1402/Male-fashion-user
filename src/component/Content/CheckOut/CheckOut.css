@@ -91,6 +91,12 @@
     margin-top: 8px;
 }
 
+.checkout__order .site-btn.disabled-btn {
+    background-color: #7a6262;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
 .checkout__order__products {
     font-size: 16px;
     color: #111111;

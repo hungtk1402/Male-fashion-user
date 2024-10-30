@@ -1,4 +1,4 @@
-const OrderDetail = ({ selectedItems, cartSubtotal }) => {
+const OrderDetail = ({ selectedItems, cartSubtotal, isFormValid, handlePlaceOrder }) => {
     return (
         <>
             <div className='col-lg-4 col-md-6'>
@@ -26,7 +26,12 @@ const OrderDetail = ({ selectedItems, cartSubtotal }) => {
                             <div className="col-6 text-right totalPrice">${cartSubtotal.toFixed(2)}</div>
                         </div>
                     </div>
-                    <button type="submit" class="site-btn">PLACE ORDER</button>
+                    <button
+                        type="submit"
+                        className={`site-btn ${!isFormValid ? 'disabled-btn' : ''}`}
+                        disabled={!isFormValid}
+                        onClick={handlePlaceOrder}
+                    >PLACE ORDER</button>
                 </div>
             </div>
         </>

@@ -4,7 +4,8 @@ import InputField from "../InputField";
 
 
 const formFields = [
-    { label: "Full Name", type: "text", placeholder: "Enter full name", name: "fullName" },
+    { label: "First Name", type: "text", placeholder: "Enter first name", name: "firstName" },
+    { label: "Last Name", type: "text", placeholder: "Enter last name", name: "lastName" },
     { label: "Date of Birth", type: "date", placeholder: "", name: "dob" },
     { label: "Email", type: "email", placeholder: "Enter email", name: "email" },
     { label: "Phone Number", type: "tel", placeholder: "Enter phone number", name: "phoneNumber" },
@@ -14,7 +15,8 @@ const formFields = [
 
 const SignUpForm = () => {
     const [formData, setFormData] = useState({
-        fullName: '',
+        firstName: '',
+        lastName: '',
         dob: '',
         email: '',
         phoneNumber: '',
@@ -31,9 +33,9 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const { fullName, dob, email, phoneNumber, password, confirmPassword } = formData
+        const { firstName, lastName, dob, email, phoneNumber, password, confirmPassword } = formData
 
-        if (!fullName || !dob || !email || !phoneNumber || !password || !confirmPassword) {
+        if (!firstName || !lastName || !dob || !email || !phoneNumber || !password || !confirmPassword) {
             setMessage('Vui lòng điền đầy đủ thông tin')
             setMessageType('error')
             return;
@@ -60,7 +62,7 @@ const SignUpForm = () => {
             setMessage('Số điện thoại đã được đăng ký')
             setMessageType('error')
         } else {
-            const newUser = { fullName, dob, email, phoneNumber, password }
+            const newUser = { firstName, lastName, dob, email, phoneNumber, password }
             users.push(newUser)
             localStorage.setItem('users', JSON.stringify(users))
             setMessage('Đăng ký thành công!')
