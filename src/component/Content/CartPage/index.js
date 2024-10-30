@@ -6,7 +6,14 @@ import CartTable from "./CartTable"
 import CartTotal from "./CartTotal"
 
 const CartPage = () => {
-    const { cartItems, removeCart, updateCartQuantity, getCartSubtotal } = useContext(CartContext)
+    const {
+        cartItems,
+        removeCart,
+        updateCartQuantity,
+        getCartSubtotal,
+        toggleSelectItem,
+        toggleSelectAllItems
+    } = useContext(CartContext)
 
     return (
         <>
@@ -14,8 +21,17 @@ const CartPage = () => {
             <section className="shopping-cart spad">
                 <div className="container">
                     <div className="row">
-                        <CartTable cartItems={cartItems} removeCart={removeCart} updateCartQuantity={updateCartQuantity} />
-                        <CartTotal cartItems={cartItems} cartSubtotal={getCartSubtotal()} />
+                        <CartTable
+                            cartItems={cartItems}
+                            removeCart={removeCart}
+                            updateCartQuantity={updateCartQuantity}
+                            toggleSelectItem={toggleSelectItem}
+                            toggleSelectAllItems={toggleSelectAllItems}
+                        />
+                        <CartTotal
+                            cartItems={cartItems}
+                            cartSubtotal={getCartSubtotal()}
+                        />
                     </div>
                 </div>
             </section>

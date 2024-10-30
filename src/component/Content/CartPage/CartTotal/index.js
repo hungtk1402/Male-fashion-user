@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CartTotal = ({ cartItems, cartSubtotal }) => {
+    const hasSelectedItems = (cartItems || []).some(item => item.selected); // Filter selected items
+    const navigate = useNavigate()
+
+    const handleCheckout = (e) => {
+        if (!hasSelectedItems) {
+            e.preventDefault()
+            return
+        }
+
+        const selectedItems = cartItems.filter(item => item.selected)
+        navigate("/checkout", { state: { selectedItems, cartSubtotal } })
+    }
+
     return (
         <>
             <div className="col-lg-4">
@@ -17,17 +30,12 @@ const CartTotal = ({ cartItems, cartSubtotal }) => {
                         <li>Subtotal <span>${cartSubtotal.toFixed(2)}</span></li>
                         <li>Total <span>${cartSubtotal.toFixed(2)}</span></li>
                     </ul>
-                    <Link
-                        to="/checkout"
-                        className={`primary-btn ${cartItems.length === 0 ? 'disabled-link' : ''}`}
-                        onClick={(e) => {
-                            if (cartItems.length === 0) {
-                                e.preventDefault();
-                            }
-                        }}
+                    <button
+                        className={`primary-btn btn-block ${!hasSelectedItems ? 'disabled-link' : ''}`}
+                        onClick={handleCheckout}
                     >
                         Proceed to Checkout
-                    </Link>
+                    </button>
                 </div>
             </div>
         </>

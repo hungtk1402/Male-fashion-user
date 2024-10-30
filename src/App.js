@@ -19,6 +19,7 @@ import ProductDetail from './component/Content/ProductDetail';
 import BlogPage from './component/Content/BlogPage';
 import ContactPage from './component/Content/ContactPage';
 import CartPage from './component/Content/CartPage';
+import CheckOut from './component/Content/CheckOut';
 
 
 function App() {
@@ -36,15 +37,15 @@ function App() {
     return () => clearTimeout(timer)
   }, [location])
 
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border" role="status"></div>
-      </div>
-    );
-  }
-
   if (user) {
+    if (loading) {
+      return (
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <div className="spinner-border" role="status"></div>
+        </div>
+      );
+    }
+
     return (
       <>
         <div className="container-fluid fade-in">
@@ -57,6 +58,7 @@ function App() {
               <Route path='/blog' element={<BlogPage />} />
               <Route path='/contact' element={<ContactPage />}/>
               <Route path='/cart' element={<CartPage />}/>
+              <Route path='/checkout' element={<CheckOut />}/>
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
