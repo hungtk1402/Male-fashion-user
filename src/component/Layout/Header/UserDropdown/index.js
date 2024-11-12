@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import { CartContext } from "../../../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const UserDropdown = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -34,15 +35,30 @@ const UserDropdown = () => {
                     <div className="fa fa-user"></div>
                     <div className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
                         <div className="menu_user">
-                            <p className="text-center">Welcome, {user?.firstName}</p>
-                            <div className="dropdown-item">
-                                <span className="fas fa-user-circle p-2"></span>
-                                My profile
-                            </div>
-                            <div className="dropdown-item" onClick={handleLogout}>
-                                <span className="fas fa-sign-out-alt p-2"></span>
-                                Logout
-                            </div>
+                            {user ? (
+                                <>
+                                    <p className="text-center">Welcome, {user?.firstName}</p>
+                                    <div className="dropdown-item">
+                                        <span className="fas fa-user-circle p-2"></span>
+                                        My profile
+                                    </div>
+                                    <div className="dropdown-item" onClick={handleLogout}>
+                                        <span className="fas fa-sign-out-alt p-2"></span>
+                                        Logout
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="/signin" className="dropdown-item">
+                                        <span className="fas fa-sign-in-alt p-2"></span>
+                                        Sign In
+                                    </Link>
+                                    <Link to="/signup" className="dropdown-item">
+                                        <span className="fas fa-user-plus p-2"></span>
+                                        Sign Up
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

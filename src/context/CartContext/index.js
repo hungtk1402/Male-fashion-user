@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserContext";
+import { LoadingContext } from "../LoadingContext";
 
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
     const { user, logout } = useContext(UserContext)
+    const { setLoading } = useContext(LoadingContext)
     const [cartItems, setCartItems] = useState(() => {
         if (user) {
             const storedCart = localStorage.getItem(`cart_${user.email}`);
@@ -98,8 +100,12 @@ export const CartProvider = ({ children }) => {
 
     // reset lại giỏ hàng khi đăng xuất
     const handleLogout = () => {
-        setCartItems([])
-        logout()
+        setLoading(true)
+        setTimeout(() => {
+            setCartItems([])
+            logout()
+            setLoading(false)
+        }, 500)
     }
 
     return (

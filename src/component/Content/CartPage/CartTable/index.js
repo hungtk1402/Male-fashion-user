@@ -75,7 +75,7 @@ const CartTable = ({ cartItems, removeCart, updateCartQuantity, toggleSelectItem
                                         </td>
                                         <td className="cart__price">
                                             ${(
-                                                item.quantity * parseFloat(item.price.replace('$', ''))
+                                                item.quantity * (parseFloat(item.price.replace('$', '')) || 0)
                                             ).toFixed(2)}
                                         </td>
                                         <td className="cart__close" onClick={() => removeCart(item.id)}>

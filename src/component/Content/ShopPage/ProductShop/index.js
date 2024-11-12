@@ -1,29 +1,27 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../../../context/CartContext';
+import { UserContext } from '../../../../context/UserContext';
 import RenderStars from '../../RenderStars';
 
-const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) => {
+const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter, handleModal }) => {
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
-    const {addToCart} = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
+    const {user} = useContext(UserContext)
     const productsPerPage = 12;
     const navigate = useNavigate()
 
     useEffect(() => {
         fetch("http://localhost:4000/products")
             .then(response => response.json())
-            .then(data => {
-                setProducts(data)
-            })
-            .catch(error => {
-                console.error("Error fetching product data:", error);
-            })
+            .then(data => setProducts(data))
+            .catch(error => console.error("Error fetching product data:", error))
     }, [])
 
-    const handleDetailClick = (productId) => {
-        navigate(`/product/${productId}`)
-    }
+    const handleDetailClick = (productId) => navigate(`/product/${productId}`)
+
+    const handleAddToCart = (product) => user ? addToCart(product) : handleModal(true)
 
     // Apply filtering 
     const filteredProducts = products.filter(product => {
@@ -119,7 +117,6 @@ const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) =>
                 </div>
             );
         }
-
         return pages;
     };
 
@@ -141,7 +138,7 @@ const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter }) =>
                                 </div>
                                 <div className='product__item__text'>
                                     <h6>{product.name}</h6>
-                                    <div className='add-cart' onClick={() => addToCart(product)}>+ Add to cart</div>
+                                    <div className='add-cart' onClick={() => handleAddToCart(product)}>+ Add to cart</div>
                                     <div className='rating'>
                                         <RenderStars rating={product.rating} />
                                     </div>

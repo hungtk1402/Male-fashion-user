@@ -27,7 +27,9 @@ const SignInForm = () => {
 
         if (user) {
             login(user)
-            navigate('/')
+            const redirectPath = localStorage.getItem('redirectPath') || '/'
+            localStorage.removeItem('redirectPath')
+            navigate(redirectPath)
         } else {
             setMessage('Tài khoản hoặc mật khẩu không đúng')
             setMessageType('error')

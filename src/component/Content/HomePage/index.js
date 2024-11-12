@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -9,8 +9,11 @@ import ProductList from './ProductList'
 import ProductSale from './ProductSale'
 import InstagramComponent from './Instagram'
 import BlogComponent from './BlogComponent'
+import PromptModal from '../PromptModal';
 
 const HomePage = () => {
+    const [showModal, setShowModal] = useState(false)
+
     useEffect(() => {
         AOS.init({
             duration: 800,  // Animation duration (in milliseconds)
@@ -19,6 +22,9 @@ const HomePage = () => {
         });
     }, []);
 
+    const toggleModal = (modalState) => {
+        setShowModal(modalState)
+    }
 
     return (
         <>
@@ -29,7 +35,7 @@ const HomePage = () => {
                 <BannerCard />
             </div>
             <div data-aos="fade-in" data-aos-delay="500">
-                <ProductList />
+                <ProductList toggleModal={toggleModal} />
             </div>
             <div data-aos="fade-in" data-aos-delay="500">
                 <ProductSale />
@@ -40,6 +46,7 @@ const HomePage = () => {
             <div data-aos="fade-in" data-aos-delay="500">
                 <BlogComponent />
             </div>
+            <PromptModal show={showModal} onClose={() => toggleModal(false)} />
         </>
     )
 }

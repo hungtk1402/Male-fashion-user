@@ -3,9 +3,9 @@ import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { UserContext } from './context/UserContext';
+import { LoadingContext } from './context/LoadingContext';
 
 import SignInForm from './component/Account/SignInForm';
 import SignUpForm from './component/Account/SignUpForm';
@@ -21,11 +21,12 @@ import ContactPage from './component/Content/ContactPage';
 import CartPage from './component/Content/CartPage';
 import CheckOut from './component/Content/CheckOut';
 
-
 function App() {
-  const { user } = useContext(UserContext)
   const location = useLocation()
-  const [loading, setLoading] = useState(true)
+  const { loading, setLoading } = useContext(LoadingContext)
+
+  // Xác định trang đăng nhập hoặc đăng ký
+  const isAuthPage = location.pathname === '/signin' || location.pathname === '/signup'
 
   useEffect(() => {
     setLoading(true)
@@ -35,46 +36,36 @@ function App() {
     }, 500)
 
     return () => clearTimeout(timer)
-  }, [location])
+  }, [location, setLoading])
 
-  if (user) {
-    if (loading) {
-      return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-          <div className="spinner-border" role="status"></div>
-        </div>
-      );
-    }
-
+  if (loading) {
     return (
-      <>
-        <div className="container-fluid fade-in">
-          <Header />
-          <div className='content'>
-            <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='/shop' element={<ShopPage />} />
-              <Route path='/product/:productId' element={<ProductDetail />} />
-              <Route path='/blog' element={<BlogPage />} />
-              <Route path='/contact' element={<ContactPage />}/>
-              <Route path='/cart' element={<CartPage />}/>
-              <Route path='/checkout' element={<CheckOut />}/>
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </div>
-          <Footer />
-        </div>
-      </>
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border" role="status"></div>
+      </div>
     );
   }
 
   return (
     <>
-      <Routes>
-        <Route path='/signin' element={<SignInForm />} />
-        <Route path='/signup' element={<SignUpForm />} />
-        <Route path="*" element={<Navigate to="/signin" />} />
-      </Routes>
+      <div className="container-fluid fade-in">
+        {!isAuthPage && <Header />}
+        <div className='content'>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/shop' element={<ShopPage />} />
+            <Route path='/product/:productId' element={<ProductDetail />} />
+            <Route path='/blog' element={<BlogPage />} />
+            <Route path='/contact' element={<ContactPage />} />
+            <Route path='/cart' element={<CartPage />} />
+            <Route path='/checkout' element={<CheckOut />} />
+            <Route path='/signin' element={<SignInForm />} />
+            <Route path='/signup' element={<SignUpForm />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+        {!isAuthPage && <Footer />}
+      </div>
     </>
   );
 }
