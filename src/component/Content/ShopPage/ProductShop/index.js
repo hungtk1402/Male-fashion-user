@@ -4,7 +4,7 @@ import { CartContext } from '../../../../context/CartContext';
 import { UserContext } from '../../../../context/UserContext';
 import RenderStars from '../../RenderStars';
 
-const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter, handleModal }) => {
+const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter, handleModal, products: initialProducts }) => {
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const { addToCart } = useContext(CartContext)
@@ -13,11 +13,15 @@ const ProductShop = ({ sortOrder, priceFilter, categoryFilter, brandFilter, hand
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch("http://localhost:4000/products")
-            .then(response => response.json())
-            .then(data => setProducts(data))
-            .catch(error => console.error("Error fetching product data:", error))
-    }, [])
+        if (!initialProducts) {
+            fetch("http://localhost:4000/products") // API để lấy danh sách sản phẩm
+                .then((response) => response.json())
+                .then((data) => setProducts(data))
+                .catch((error) => console.error("Error fetching product data:", error));
+        } else {
+            setProducts(initialProducts)
+        }
+    }, [initialProducts]);
 
     const handleDetailClick = (productId) => navigate(`/product/${productId}`)
 
