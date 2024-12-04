@@ -1,17 +1,21 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../../context/UserContext";
 import { CartContext } from "../../../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserDropdown = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const dropdownRef = useRef(null)
     const { user } = useContext(UserContext)
     const { handleLogout } = useContext(CartContext)
+    const navigate = useNavigate()
 
     // xử lý dropdown
-    const handleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen)
+    const handleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
+
+    const handleProfileClick = () => {
+        setIsDropdownOpen(false)
+        navigate("/profile")
     }
 
     // đóng dropdown nếu nhấp chuột ngoài vùng dropdown
@@ -38,7 +42,7 @@ const UserDropdown = () => {
                             {user ? (
                                 <>
                                     <p className="text-center">Welcome, {user?.firstName}</p>
-                                    <div className="dropdown-item">
+                                    <div className="dropdown-item" onClick={handleProfileClick}>
                                         <span className="fas fa-user-circle p-2"></span>
                                         My profile
                                     </div>

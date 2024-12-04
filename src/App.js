@@ -21,6 +21,7 @@ import ContactPage from './component/Content/ContactPage';
 import CartPage from './component/Content/CartPage';
 import CheckOut from './component/Content/CheckOut';
 import SearchPage from './component/Content/SearchPage';
+import ProfilePage from './component/Content/ProfilePage';
 
 function App() {
   const location = useLocation()
@@ -61,6 +62,7 @@ function App() {
             <Route path='/cart' element={<CartPage />} />
             <Route path='/checkout' element={<CheckOut />} />
             <Route path='/search' element={<SearchPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
             <Route path='/signin' element={<SignInForm />} />
             <Route path='/signup' element={<SignUpForm />} />
             <Route path="*" element={<Navigate to="/" />} />
